@@ -1,5 +1,7 @@
 # Coy Discover
 
+[Open the live demo](https://coy-ship-discover.hyperprobe-9527.chatgpt.site). Each browser gets a separate demo deck. Like Maya to see the first mutual match.
+
 A standalone, mobile-first React app for meeting one profile at a time. A right swipe or **Like** records interest. A left swipe or **Pass** removes the card. Both decisions are final. The Matches view contains only people who also liked you.
 
 ## Run locally
@@ -58,3 +60,8 @@ The API tests cover public response fields, unilateral likes, passes on admirers
 - `seed.mjs` holds the fictional profiles and inbound-like fixtures.
 - `tests/` and `e2e/` contain API and browser acceptance tests.
 - [Product review](PRODUCT.md) covers the supplied Coy UI and two proposed features.
+
+## Hosted demo
+
+The public deployment uses the same React build and server-side seed data. The hosting adapter in `hosted/` implements the API on a Worker with D1 (SQLite). An HttpOnly cookie identifies each anonymous demo session for 30 days. Hosted swipes persist in D1. To build the hosting artifact, run `npx vite build --outDir client-build` and then `node hosted/build.mjs`. The local Express setup above continues to use one shared demo identity.
+
